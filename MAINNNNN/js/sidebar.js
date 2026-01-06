@@ -7,7 +7,6 @@ const links = [
   { name: "Discounts", path: "discount.html", icon: "tag" },
   { name: "Trends", path: "trends.html", icon: "trending-up" },
   { name: "Waste", path: "waste.html", icon: "trash-2" },
-  { name: "Simulation", path: "simulation.html", icon: "layers" },
   { name: "Placement", path: "placement.html", icon: "eye" },
   { name: "Comparison", path: "comparison.html", icon: "bar-chart-2" },
 ];
