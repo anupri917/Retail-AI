@@ -14,6 +14,11 @@ export const register = async (req, res) => {
       return res.status(400).json({ message: "User already exists" });
     }
 
+    if (!name || !email || !password) {
+  return res.status(400).json({ message: "Name, email, and password are required" });
+}
+
+
     const hashedPassword = await hashPassword(password);
 
     const user = await User.create({
