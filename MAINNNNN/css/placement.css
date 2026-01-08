@@ -171,3 +171,28 @@ select {
   display: grid;
   place-items: center;
 }
+
+/* ================= DARK MODE BLUE TEXT OVERRIDE ================= */
+body.dark {
+  --text: #1a385a;        /* soft dark blue */
+}
+
+body.dark .cell,
+body.dark header,
+body.dark .ai-insight,
+body.dark select {
+  color: #20344b;         /* readable blue, not white */
+}
+
+/* Optional: slightly stronger headings */
+body.dark h1,
+body.dark h2,
+body.dark h3,
+body.dark h4 {
+  color: #102947;
+}
+
+/* Optional: keep borders subtle */
+body.dark .cell {
+  border-color: #1e3a8a;
+}
