@@ -127,8 +127,7 @@ Max file size: **500MB**
 
 Frontend: HTML, CSS, JavaScript, React, Next.js, TypeScript  
 Backend: Node.js, Express  
-AI / ML: Python, Pandas, Scikit-Learn  
-Blockchain: Solidity, Ethers.js  
+AI / ML: Python
 Database: MongoDB  
 
 ---
