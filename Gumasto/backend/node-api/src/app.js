@@ -6,6 +6,7 @@ import productRoutes from "./routes/product.routes.js";
 import authRoutes from "./routes/auth.routes.js";
 import aiRoutes from "./routes/ai.routes.js";
 import insightRoutes from "./routes/insight.routes.js";
+import uploadRoutes from "./routes/upload.routes.js";
 
 const app = express();
 
@@ -18,7 +19,7 @@ app.use(express.json());
 app.use("/auth", authRoutes);
 app.use("/store", storeRoutes);
 app.use("/api/insights", insightRoutes);
-
+app.use("/api/upload", uploadRoutes);
 app.use(morgan("dev"));
 
 app.get("/health", (req, res) => {
