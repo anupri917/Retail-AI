@@ -4,6 +4,31 @@ import {
   comparePassword,
   generateToken
 } from "../services/auth.service.js";
+import { generateOTP, hashOTP } from "../utils/otp.js";
+import { sendOTPEmail } from "../services/email.service.js";
+import crypto from "crypto";
+
+export const forgotPassword = async (req, res) => {
+  try {
+    const { email } = req.body;
+
+    const user = await User.findOne({ email });
+    if (!user)
+      return res.status(404).json({ message: "User not found" });
+
+    const otp = generateOTP();
+    user.resetOTP = hashOTP(otp);
+    user.resetOTPExpiry = Date.now() + 10 * 60 * 1000;
+
+    await user.save();
+    await sendOTPEmail(email, otp);
+
+    res.json({ message: "OTP sent to email" });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+};
+
 
 export const register = async (req, res) => {
   try {
@@ -58,6 +83,45 @@ export const login = async (req, res) => {
       message: "Login successful",
       token
     });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
+export const resetPassword = async (req, res) => {
+  try {
+    const { email, otp, newPassword } = req.body;
+
+    if (!email || !otp || !newPassword) {
+      return res.status(400).json({
+        message: "Email, OTP and new password are required"
+      });
+    }
+
+    const hashedOTP = crypto
+      .createHash("sha256")
+      .update(otp)
+      .digest("hex");
+
+    const user = await User.findOne({
+      email,
+      resetOTP: hashedOTP,
+      resetOTPExpiry: { $gt: Date.now() }
+    });
+
+    if (!user) {
+      return res.status(400).json({
+        message: "Invalid or expired OTP"
+      });
+    }
+
+    user.password = await hashPassword(newPassword);
+    user.resetOTP = undefined;
+    user.resetOTPExpiry = undefined;
+
+    await user.save();
+
+    res.json({ message: "Password reset successful" });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }

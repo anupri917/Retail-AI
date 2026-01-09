@@ -16,6 +16,14 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: true
     },
+
+    resetOTP: {
+      type: String
+    },
+    resetOTPExpiry: {
+      type: Date
+    },
+
     role: {
       type: String,
       enum: ["admin", "store_owner"],
