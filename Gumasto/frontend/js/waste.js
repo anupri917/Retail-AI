@@ -1,7 +1,7 @@
 const ctx = document.getElementById("wasteChart").getContext("2d");
 
 const labels = ["Dispose", "Donate", "Discount", "Sale"];
-const values = [1, 2, 1, 1];
+const values = [3, 1, 9, 8];
 
 const colors = {
   Dispose: "#dc2626",
