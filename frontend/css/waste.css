@@ -69,6 +69,8 @@ header p {
   font-size: 18px;
   margin-top: 8px;
   opacity: .95;
+  max-width: 720px;
+  line-height: 1.6;
 }
 
 

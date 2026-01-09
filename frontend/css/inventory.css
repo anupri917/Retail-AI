@@ -83,6 +83,11 @@ body{
 
 .hero h1{font-size:36px;margin:0 0 12px}
 
+.hero p {
+  max-width: 720px;
+  line-height: 1.6;
+}
+
 /* KPIs */
 .kpis{
   display:grid;

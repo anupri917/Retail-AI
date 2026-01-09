@@ -58,6 +58,11 @@ html,body {
   align-items:center;
 }
 
+.header-row p{
+  max-width: 720px;
+  line-height: 1.6;
+}
+
 .subtitle {
   color:var(--muted);
 }
