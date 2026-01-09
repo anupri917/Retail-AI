@@ -41,16 +41,22 @@
         </div>
 
       </div>
-     <select id="categorySelect">
-      <option value="">Select Category</option>
-      <option>Dairy</option>
-      <option>Bakery</option>
-      <option>Snacks</option>
-      <option>Beverages</option>
-      <option>Electronics</option>
-      <option>Baby Products</option>
-      <option>Toys</option>
-    </select>
+     <!-- CATEGORY SELECT -->
+   <select id="categorySelect" class="category-select">
+  <option value="">Select Category</option>
+  <option>Dairy</option>
+  <option>Bakery</option>
+  <option>Snacks</option>
+  <option>Beverages</option>
+  <option>Electronics</option>
+  <option>Baby Products</option>
+  <option>Toys</option>
+</select>
+<br>
+<p id="select-msg" class="select-msg">
+  Select a category to see comparison.
+</p>
+
 
       <!-- BRAND GRID -->
       <section id="brand-grid" class="grid"></section>
@@ -58,6 +64,10 @@
       <!-- REPLACEMENT -->
       <section class="panel glass">
         <h2>🔁 AI Replacement Simulation</h2>
+        <p id="replace-msg" class="select-msg">
+        Select a category to simulate AI-powered replacement impact.
+        </p>
+
         <p id="worst-brand"></p>
         <p id="best-brand"></p>
 
